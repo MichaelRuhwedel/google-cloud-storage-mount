@@ -13,4 +13,4 @@ RUN curl -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/
     tar -o -C / -zxf gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
     rm gcsfuse_v0.11.1_linux_amd64.tar.gz
 
-CMD ["gcsfuse", "$BUCKET", "/mnt/bucket]
+CMD ["gcsfuse", "$BUCKET", "/mnt/bucket"]
