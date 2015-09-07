@@ -6,6 +6,7 @@ RUN DEBIAN_FRONTEND=noninteractive\
     apt-get update -qq &&\
     apt-get install -yqq\
     fuse\
+    cron\
     rsync\
     curl &&\
     rm -rf /var/lib/apt/lists/*
