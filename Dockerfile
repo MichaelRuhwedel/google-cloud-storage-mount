@@ -3,8 +3,8 @@ FROM debian:wheezy
 RUN mkdir /mnt/bucket
 
 RUN DEBIAN_FRONTEND=noninteractive\
-    apt-get update -q &&\
-    apt-get install -yq\
+    apt-get update -qq &&\
+    apt-get install -yqq\
     fuse\
     rsync\
     curl &&\
