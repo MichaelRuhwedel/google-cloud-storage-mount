@@ -1,0 +1,1 @@
+15 * * * *  rsync -a /mnt/bucket /mnt/logfiles-incoming
