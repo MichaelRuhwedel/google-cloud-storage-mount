@@ -17,5 +17,6 @@ RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/downlo
 
 ADD crontab /etc/cron.d/sync-logs
 RUN chmod 0644 /etc/cron.d/sync-logs
+RUN update-rc.d cron enable
 
 CMD ["sh", "-c", "gcsfuse $BUCKET /mnt/bucket"]
