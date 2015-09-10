@@ -17,7 +17,6 @@ RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/downlo
     tar -o -C / -zxf gcsfuse_v${VERSION}_linux_amd64.tar.gz &&\
     rm gcsfuse_v${VERSION}_linux_amd64.tar.gz
 
-
 ADD sync-logs /etc/cron.d/
 RUN chmod 0744 /etc/cron.d/sync-logs
 
