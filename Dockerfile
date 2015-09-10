@@ -16,6 +16,7 @@ RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/downlo
     rm gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
     apt-get remove -yqq curl
 
-ADD crontab /etc/cron.d/sync-logs
+ADD sync-logs /etc/cron.d/
+RUN chmod 0744 /etc/cron.d/sync-logs
 
 CMD ["sh", "-c", "cron && gcsfuse $BUCKET /mnt/bucket"]
