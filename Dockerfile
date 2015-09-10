@@ -11,10 +11,12 @@ RUN DEBIAN_FRONTEND=noninteractive\
     curl &&\
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v0.11.1/gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
-    tar -o -C / -zxf gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
-    rm gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
-    apt-get remove -yqq curl
+ENV VERSION=0.11.1
+
+RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v${VERSION}/gcsfuse_v${VERSION}_linux_amd64.tar.gz &&\
+    tar -o -C / -zxf gcsfuse_v${VERSION}_linux_amd64.tar.gz &&\
+    rm gcsfuse_v${VERSION}_linux_amd64.tar.gz &&\
+
 
 ADD sync-logs /etc/cron.d/
 RUN chmod 0744 /etc/cron.d/sync-logs
