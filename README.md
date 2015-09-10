@@ -1,4 +1,4 @@
-# google-cloud-storage-mount
+### google-cloud-storage-mount
 
 Rsync's the bucket given as $BUCKET to /mnt/logfiles_incoming
 Credentials are given as GOOGLE_APPLICATION_CREDENTIALS and added through a volume: GOOGLE_APPLICATION_CREDENTIALS=/etc/gcsfuse/my-project-key.json
