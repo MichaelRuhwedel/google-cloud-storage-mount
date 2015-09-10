@@ -4,7 +4,7 @@ RUN mkdir /mnt/bucket
 
 RUN DEBIAN_FRONTEND=noninteractive\
     apt-get update -qq &&\
-    apt-get install -yqq\
+    apt-get install --no-install-recommends -yqq\
     fuse\
     cron\
     rsync\
