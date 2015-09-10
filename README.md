@@ -1,10 +1,9 @@
 # google-cloud-storage-mount
 
-* Rsync's the bucket given as $BUCKET to /mnt/logfiles_incoming
-* Supply credentials as GOOGLE_APPLICATION_CREDENTIALS and add them to a  volume GOOGLE_APPLICATION_CREDENTIALS=/etc/gcsfuse/my-project-key.json
+Rsync's the bucket given as $BUCKET to /mnt/logfiles_incoming
+Credentials are given as GOOGLE_APPLICATION_CREDENTIALS and added through a volume: GOOGLE_APPLICATION_CREDENTIALS=/etc/gcsfuse/my-project-key.json
 
-We use this image like this:
-
+Usage
 ```
 docker run\
   --name cloud-storage-logs\
