@@ -12,7 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive\
     curl &&\
     rm -rf /var/lib/apt/lists/*
 
-ENV VERSION = 0.11.1
+ENV VERSION=0.11.1
 
 RUN curl -sLO https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v${VERSION}/gcsfuse_v${VERSION}_linux_amd64.tar.gz &&\
     tar -oC / -zxf gcsfuse_v${VERSION}_linux_amd64.tar.gz &&\
