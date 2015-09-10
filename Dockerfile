@@ -1,4 +1,4 @@
-FROM debian:wheezy
+/FROM debian:wheezy
 
 RUN mkdir /mnt/bucket
 
@@ -11,9 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive\
     curl &&\
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v0.11.1/gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
-    tar -o -C / -zxf gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
-    rm gcsfuse_v0.11.1_linux_amd64.tar.gz &&\
+RUN curl -Ls https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v0.11.1/gcsfuse_v0.11.1_linux_amd64.tar.gz | tar zxC / &&\
     apt-get remove -yqq curl
 
 ADD sync-logs /etc/cron.d/
