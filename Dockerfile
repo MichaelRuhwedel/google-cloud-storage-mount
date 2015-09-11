@@ -20,7 +20,7 @@ RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/downlo
     apt-get remove -yqq curl
 
 ADD sync-logs /etc/cron.d/
-RUN chmod 0744 /etc/cron.d/sync-logs
+RUN chmod 0644 /etc/cron.d/sync-logs
 
 COPY docker-cmd.sh /
 

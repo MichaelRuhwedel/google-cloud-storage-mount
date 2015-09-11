@@ -1,7 +1,3 @@
-
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
 # m h dom mon dow user	command
 0 *   * * *  root  echo "I ran" >> /var/log/cron.log 2>&1
 5 *   * * *  root  rsync --ignore-existing -ra /mnt/bucket /mnt/logfiles_incoming >> /var/log/cron.log 2>&1
