@@ -22,4 +22,6 @@ RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/downlo
 ADD sync-logs /etc/cron.d/
 RUN chmod 0744 /etc/cron.d/sync-logs
 
-CMD ["sh", "-c", "cron && gcsfuse $BUCKET /mnt/bucket"]
+COPY docker-cmd.sh /
+
+CMD ["/docker-cmd.sh"]
