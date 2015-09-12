@@ -1,4 +1,4 @@
-FROM FROM phusion/baseimage:0.9.17
+FROM phusion/baseimage:0.9.17
 
 RUN DEBIAN_FRONTEND=noninteractive\
     apt-get update -qq &&\
