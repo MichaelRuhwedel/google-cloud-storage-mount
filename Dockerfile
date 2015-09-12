@@ -7,7 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive\
     apt-get install --no-install-recommends -yqq\
     ca-certificates\
     fuse\
-    supervisor\
+    daemon\
     rsync\
     curl &&\
     rm -rf /var/lib/apt/lists/*
@@ -19,6 +19,6 @@ RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/downlo
     rm gcsfuse_v${VERSION}_linux_amd64.tar.gz &&\
     apt-get remove -yqq curl
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker-cmd.sh /
 
-CMD ["sh", "-c", "/usr/bin/supervisord"]
+CMD ["docker-cmd.sh"]
