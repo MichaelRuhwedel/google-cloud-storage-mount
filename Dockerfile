@@ -22,7 +22,3 @@ RUN mkdir /mnt/bucket
 RUN mkdir -p /etc/my_init.d
 ADD 00-create-todays-log-dir.sh /etc/my_init.d/00-create-todays-log-dir.sh
 ADD 10-rsync-bucket-to-local.sh /etc/my_init.d/10-rsync-bucket-to-local.sh
-
-COPY docker-cmd.sh /
-
-CMD ["/docker-cmd.sh"]
