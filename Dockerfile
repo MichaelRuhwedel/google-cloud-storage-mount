@@ -20,6 +20,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN mkdir /etc/service/gcsfuse
 ADD gcsfuse.sh /etc/service/gcsfuse/run
 
+ADD create-todays-log-dir.sh /bin/
+ADD sync-logs.sh /bin/
+
 RUN mkdir /mnt/bucket
 
 ADD sync-logs /etc/cron.d/
