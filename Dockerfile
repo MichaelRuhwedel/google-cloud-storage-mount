@@ -21,4 +21,4 @@ RUN curl -s -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/downlo
 
 COPY docker-cmd.sh /
 
-CMD ["docker-cmd.sh"]
+CMD ["/docker-cmd.sh"]
