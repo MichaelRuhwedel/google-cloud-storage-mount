@@ -20,5 +20,5 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD services/gcsfuse.sh /etc/service/gcsfuse/run
 ADD bin/* /bin/
 ADD cron.d/* /etc/cron.d/
-
+RUN echo "#!/bin/bash\ntouch /etc/crontab /etc/cron.d/*" >> /etc/my_init.d/touch-crond && chmod 744 /etc/my_init.d/touch-crond
 RUN mkdir /mnt/bucket
