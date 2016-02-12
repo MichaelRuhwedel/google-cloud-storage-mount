@@ -1,0 +1,2 @@
+apt-get install -y python gcc python-dev python-setuptools 
+easy_install -U pip && pip install -U crcmod

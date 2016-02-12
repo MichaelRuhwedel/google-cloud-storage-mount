@@ -1,5 +1,0 @@
-#   m   h dom mon dow user	command
-  */5   *   *  *   *  root  /bin/sync-logs.sh >> /var/log/cron.log 2>&1
-    *   *   *  *   *  root  /bin/create-todays-log-dir.sh >> /var/log/cron.log 2>&1
-    *   *   *  *   *  root  /bin/delete-old-logs.sh >> /var/log/cron.log 2>&1
-# An empty line is required at the end of this file for a valid cron file.
