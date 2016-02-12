@@ -1,0 +1,9 @@
+[Credentials]
+gs_service_key_file = /etc/gcsfuse/gs_service_key_file.json
+
+[Boto]
+https_validate_certificates = True
+
+[GSUtil]
+default_api_version = 2
+default_project_id = PROJECT_ID
