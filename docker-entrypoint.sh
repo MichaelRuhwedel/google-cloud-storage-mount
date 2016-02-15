@@ -10,6 +10,13 @@ if [ -z "$PROJECT_ID" ]; then
     exit 1
 fi
 
+KEY_FILE=/etc/gcsfuse/gs_service_key_file.json
+
+if [ ! -f $KEY_FILE ]; then
+   echo $KEY_FILE does not exist please launch with -v /path-to-key-file/key-file.json:$KEY_FILE
+   exit 1
+fi
+
 THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/`date +"%Y"`/`date +"%m"`
 
 SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
