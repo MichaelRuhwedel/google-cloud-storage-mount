@@ -16,7 +16,6 @@ SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
 DST=/mnt/logfiles_incoming/$THIS_MONTHS_LOGS
 
 echo Syncing Logs of $PROJECT_ID `date +"%Y"`.`date +"%m"`
-echo Project:
 echo Src: $SRC
 echo Dst: $DST
 
