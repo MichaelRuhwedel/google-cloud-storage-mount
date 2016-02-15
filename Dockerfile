@@ -3,9 +3,9 @@ FROM python:2.7.11
 RUN pip install -U crcmod
 RUN curl https://storage.googleapis.com/pub/gsutil.tar.gz | tar -xzC /opt
 
-ADD boto /root/.boto
-ADD docker-entrypoint.sh /
+ENV PATH /opt/gsutil:$PATH
 
-WORKDIR /opt/gsutil
+COPY boto /root/.boto
+COPY docker-entrypoint.sh /
 
 ENTRYPOINT /docker-entrypoint.sh
