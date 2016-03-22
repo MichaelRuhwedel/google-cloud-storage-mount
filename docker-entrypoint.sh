@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [ -z "$BUCKET" ]; then
     echo "BUCKET environment variable not set, launch with -e BUCKET=my-bucket-name"
