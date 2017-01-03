@@ -17,7 +17,11 @@ if [ ! -f $KEY_FILE ]; then
    exit 1
 fi
 
-THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/`date +"%Y"`/`date +"%m"`
+if [ -z "$MONTH" ]; then
+    MONTH=$(date +"%m")
+fi
+
+THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/`date +"%Y"`/$MONTH
 
 SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
 DST=/mnt/logfiles_incoming/$THIS_MONTHS_LOGS
