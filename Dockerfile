@@ -1,7 +1,8 @@
-FROM python:2.7.11-alpine
-ENV VERSION_GSUTIL=4.16
+FROM python:2.7.13-alpine
+ENV VERSION_GSUTIL=4.22
 
-RUN apk -U add curl
+RUN apk --no-cache add\
+    curl
 
 RUN pip install -U crcmod
 
