@@ -27,8 +27,7 @@ SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
 DST=/mnt/logfiles_incoming/$THIS_MONTHS_LOGS
 
 echo Syncing Logs of $PROJECT_ID `date +"%Y"`.`date +"%m"`
-echo Src: $SRC
-echo Dst: $DST
+echo $SRC : $DST
 
 sed -i s/PROJECT_ID/$PROJECT_ID/ ~/.boto
 
