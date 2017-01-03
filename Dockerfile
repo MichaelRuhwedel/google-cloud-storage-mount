@@ -4,7 +4,7 @@ ENV VERSION_GSUTIL=4.22
 RUN apk --no-cache add\
     curl
 
-RUN pip install --no-cache-dir\
+RUN pip install --no-cache-dir -U\
     crcmod
 
 RUN mkdir -p /opt\
