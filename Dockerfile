@@ -2,13 +2,13 @@ FROM alpine:3.5
 ENV VERSION_GSUTIL=4.22
 
 RUN apk --no-cache add\
-    python-dev\
+    python\
     py-crcmod\
-    gcc\
-    curl
+    ca-certificates\
+    wget
 
 RUN mkdir -p /opt\
-      && curl --silent https://storage.googleapis.com/pub/gsutil_$VERSION_GSUTIL.tar.gz\
+      && wget -qO- https://storage.googleapis.com/pub/gsutil_$VERSION_GSUTIL.tar.gz\
        | tar -xzC /opt
 
 ENV PATH /opt/gsutil:$PATH
