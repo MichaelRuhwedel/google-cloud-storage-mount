@@ -1,5 +1,5 @@
-FROM alpine:3.5
-ENV VERSION_GSUTIL=4.22
+FROM alpine:3.7
+ENV VERSION_GSUTIL=4.28
 
 RUN apk --no-cache add\
     python\
