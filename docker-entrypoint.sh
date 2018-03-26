@@ -21,7 +21,10 @@ if [ -z "$MONTH" ]; then
     MONTH=`date +"%m"`
 fi
 
-YEAR=`date +"%Y"`
+if [ -z "$YEAR" ]; then
+    YEAR=`date +"%Y"`
+fi
+
 THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/$YEAR/$MONTH
 
 SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
