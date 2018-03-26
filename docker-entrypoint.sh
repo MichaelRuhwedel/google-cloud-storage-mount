@@ -5,11 +5,6 @@ if [ -z "$BUCKET" ]; then
     exit 1
 fi
 
-if [ -z "$PROJECT_ID" ]; then
-    echo "PROJECT_ID environment variable not set, launch with -e PROJECT_ID=my-project-name"
-    exit 1
-fi
-
 KEY_FILE=/etc/gcsfuse/gs_service_key_file.json
 
 if [ ! -f $KEY_FILE ]; then
@@ -30,11 +25,11 @@ THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/$YEAR/$MONTH
 SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
 DST=/mnt/logfiles_incoming/$THIS_MONTHS_LOGS
 
-echo Syncing Logs of $PROJECT_ID $YEAR.$MONTH
+echo Syncing Logs of $YEAR.$MONTH
 echo $SRC : $DST
 
 mkdir -p $DST
 gsutil -m rsync -r $SRC $DST
 
-#gsutil will return non zero code when there is nothing to sync -> please check errors for logs
+# gsutil will return non zero code when there is nothing to sync -> please check errors for logs
 exit 0
