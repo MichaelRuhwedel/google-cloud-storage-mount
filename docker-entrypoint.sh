@@ -31,7 +31,7 @@ echo Syncing Logs of $PROJECT_ID $YEAR.$MONTH
 echo $SRC : $DST
 
 mkdir -p $DST
-gsutil -m rsync -r -p $PROJECT_ID $SRC $DST
+gsutil -m rsync -r $SRC $DST
 
 #gsutil will return non zero code when there is nothing to sync -> please check errors for logs
 exit 0
