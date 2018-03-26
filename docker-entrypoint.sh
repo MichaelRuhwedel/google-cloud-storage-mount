@@ -18,12 +18,17 @@ fi
 
 if [ -z "$YEAR" ]; then
     YEAR=`date +"%Y"`
+
+    if [ -z "$MONTH" ]; then
+        MONTH=""
+        echo "Syncing a whole year. This might take a while"
+    fi
 fi
 
-THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/$YEAR/$MONTH
+PATH_TO_SYNC=appengine.googleapis.com/request_log/$YEAR/$MONTH
 
-SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
-DST=/mnt/logfiles_incoming/$THIS_MONTHS_LOGS
+SRC=gs://$BUCKET/$PATH_TO_SYNC
+DST=/mnt/logfiles_incoming/$PATH_TO_SYNC
 
 echo Syncing Logs of $YEAR.$MONTH
 echo $SRC : $DST
