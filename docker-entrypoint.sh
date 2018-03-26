@@ -18,21 +18,20 @@ if [ ! -f $KEY_FILE ]; then
 fi
 
 if [ -z "$MONTH" ]; then
-    MONTH=$(date +"%m")
+    MONTH=`date +"%m"`
 fi
 
-THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/`date +"%Y"`/$MONTH
+YEAR=`date +"%Y"`
+THIS_MONTHS_LOGS=appengine.googleapis.com/request_log/$YEAR/$MONTH
 
 SRC=gs://$BUCKET/$THIS_MONTHS_LOGS
 DST=/mnt/logfiles_incoming/$THIS_MONTHS_LOGS
 
-echo Syncing Logs of $PROJECT_ID `date +"%Y"`.`date +"%m"`
+echo Syncing Logs of $PROJECT_ID $YEAR.$MONTH
 echo $SRC : $DST
 
-sed -i s/PROJECT_ID/$PROJECT_ID/ ~/.boto
-
 mkdir -p $DST
-gsutil -m rsync -r $SRC $DST
+gsutil -m rsync -r -p $PROJECT_ID $SRC $DST
 
 #gsutil will return non zero code when there is nothing to sync -> please check errors for logs
 exit 0
