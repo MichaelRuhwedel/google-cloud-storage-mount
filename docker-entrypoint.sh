@@ -12,16 +12,11 @@ if [ ! -f $KEY_FILE ]; then
    exit 1
 fi
 
-if [ -z "$MONTH" ]; then
-    MONTH=`date +"%m"`
-fi
-
-if [ -z "$YEAR" ]; then
+if [[ -z "$YEAR" ]]; then
     YEAR=`date +"%Y"`
 
     if [ -z "$MONTH" ]; then
-        MONTH=""
-        echo "Syncing a whole year. This might take a while"
+        MONTH=`date +"%m"`
     fi
 fi
 
